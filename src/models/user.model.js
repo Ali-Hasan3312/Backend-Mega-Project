@@ -1,10 +1,10 @@
-import mongoose, {Schema, model} from "mongoose";
+import {Schema, model} from "mongoose";
 import bcrypt from "bcrypt"
-import { Jwt } from "jsonwebtoken";
+import Jwt  from "jsonwebtoken";
 const userSchema = new Schema({
     userName: {
         type: String,
-        required: true,
+       
         unique: true,
         trim: true,
         lowercase: true,
@@ -23,7 +23,7 @@ const userSchema = new Schema({
         required: true,
         trim: true, 
     },
-    avatar: {
+    Avatar: {
         type: String, // Cloudnary url
         required: true,
     },
@@ -38,7 +38,7 @@ const userSchema = new Schema({
     },
     refreshToken: {
         type: String,
-        required: true,
+       
         trim: true, 
     },
     watchHistory: [
