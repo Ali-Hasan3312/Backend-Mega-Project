@@ -28,6 +28,18 @@ const uploadOnCloudinary = async (localFilePath) => {
     
 }
 
+async function deleteFileByUrl(url) {
+    // Extract public_id from the URL
+    const publicId = url.match(/\/([^\/]+)\.[a-z]{3,4}(?:$|\?)/i)[1];
+  
+    try {
+      const result = await cloudinary.uploader.destroy(publicId);
+      console.log(result);
+      console.log("File deleted successfully.");
+    } catch (error) {
+      console.error("Error deleting file:", error.message);
+    }
+  }
 
 
-export default uploadOnCloudinary;
+export {uploadOnCloudinary, deleteFileByUrl};
